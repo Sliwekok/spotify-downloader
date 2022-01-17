@@ -1,0 +1,4 @@
+postawic zwyklego phpa do hostowania asynchronciznie spotify downloadera
+dodac HELPME
+dodac aboutme
+dodac na githuba!!!

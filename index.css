@@ -1,0 +1,51 @@
+body{
+    width: 450px;
+    height: 100px;
+    padding: 0px 25px 25px 25px;
+    font-family: 'Outfit', sans-serif;
+    color: rgb(218, 218, 218);
+    background-color: rgb(66,66,66);
+    border-radius: 30px;
+}
+#logo{
+    text-align: center
+}
+#form{
+    width: 100%;
+
+}
+#form #url{
+    background-color: transparent;
+    color: inherit;
+    padding: 5px;
+    outline: none !important;
+    border: 0px transparent solid;
+    border-bottom: 3px solid rgb(92, 92, 92);
+    transition: 0.5s;
+    width: 65%;
+}
+#form #url:focus{
+    border-image-slice: 1;
+    border-image: linear-gradient(to right, rgba(47,47,47,1,rgba(29,185,84,1)));
+}
+#form #submit{
+    background-color: rgb(0, 84, 163);
+    border: 0px white solid;
+    padding: 15px;
+    margin-left: 10%;
+    color: rgb(218, 218, 218);
+    cursor: pointer;
+    transition: 0.15s;
+}
+#form #submit:active{
+    background-color: rgb(0, 105, 204);
+}
+#respond{
+    font-size: 1rem;
+    width: fit-content;
+    padding-bottom: 25px;
+    margin-top: 25px;
+}
+#respond.error {
+    color: rgb(255, 104, 104);
+}
