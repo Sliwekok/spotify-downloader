@@ -4,7 +4,7 @@ Spotify downloader is a free extensions to Google Chrome that allows you to down
 
 ## Installation
 
-You must add extension by hand. Download package and add to currently instlled extensions [here](google://extensions/). If you don't know how to add extension - click [here]() to check tutorial
+You must add extension by hand. Download package and add to currently installed extensions.Enter ``` chrome://extensions/ ``` and enable developer mode in upper right corner. Click on ``` Load unpacked ``` and select extracted extension directory. 
 
 
 ## Usage
