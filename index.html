@@ -7,7 +7,8 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Outfit&display=swap" rel="stylesheet">
     <!-- CSS -->
-    <link rel="stylesheet" href="index.css" />
+    <link rel="stylesheet" href="assets/fontello/css/fontello.css">
+    <link rel="stylesheet" href="index.css">
     <!-- JS -->
     <script src="index.js"></script>
 </head>
@@ -16,14 +17,16 @@
         <h1>Spotify downloader</h1>
     </div>
 
-    <form action="" method="get" id="form">
+    <form method="get" id="form">
         <input autofocus type="text" id="url" name="url" placeholder="(paste it here)">
         <input type="submit" id="submit" name="submit" value="Download">
     </form>
-
+    
     <div id="respond">
-        <p>Throw your favourite song URL here to download it</p>
+        <p class="text" id="default">Throw your favourite song URL here to download it</p>
+        <p class="text" id="loader">File is beeing downloaded<span class="icon-cog"></span> </p>
+        <p class="text" id="downloading">Download will be starting soon!<br>If not - click <a id="download" download="test" href="" target="_blank">here</a></p>
+        <p class="text" id="error"></p>
     </div>
-
 </body>
 </html>

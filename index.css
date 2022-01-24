@@ -36,6 +36,7 @@ body{
     color: rgb(218, 218, 218);
     cursor: pointer;
     transition: 0.15s;
+    border-radius: 0.6rem;
 }
 #form #submit:active{
     background-color: rgb(0, 105, 204);
@@ -46,6 +47,25 @@ body{
     padding-bottom: 25px;
     margin-top: 25px;
 }
-#respond.error {
+#respond #error {
     color: rgb(255, 104, 104);
+}
+#respond>#loader>i{
+    display: block;
+    animation: 1s spin infinite !important;
+}
+@keyframes spin{
+    from{
+        transform: rotate(0deg);
+    }
+    to{
+        transform: rotate(360deg);
+    }
+}
+#respond #loader, #respond #downloading{
+    display: none;
+}
+#respond a{
+    color: rgb(207, 198, 255);
+    text-decoration: underline;
 }
