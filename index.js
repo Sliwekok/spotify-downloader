@@ -25,14 +25,19 @@ function main() {
         error.style.display = 'none';
         loader.style.display = 'block';
 
-        ajaxRequest(input.value);
+        if(!ajaxRequest(input.value)){
+            loader.style.display = 'none';
+            error.style.display = 'block';
+            error.textContent = "Can't set up connection to server";
+            return false;
+        }
     });
     
     function ajaxRequest(content){
         // create class for connection
         var Connection = class{
             constructor(){
-                this.path   = 'http://83.8.153.120/tester/';
+                this.path   = 'http://localhost/tester/';
                 this.port   = '80';
                 this.method = 'GET';
             }
@@ -40,7 +45,7 @@ function main() {
         const   conn    = new Connection(),
                 ajax    = new XMLHttpRequest(),
                 date    = new Date(),
-                csrf    = date.getHours() + ':' + date.getMinutes() + ':' + date.getSeconds();
+                csrf    = date.getHours() + ':' + date.getMinutes() + ':' + date.getSeconds(),
                 url     = conn.path + "?url=" + content + "&csrf=" + csrf;
 
         ajax.onreadystatechange = function() {
@@ -50,14 +55,7 @@ function main() {
                 loader.style.display = 'none';
                 download.style.display = 'block';
                 link.setAttribute('href', musicUrl);
-                ((musicUrl) => {
-                    const ahref = document.createElement('a');
-                    ahref.href = musicUrl;
-                    ahref.download = FILE_NAME;
-                    document.body.appendChild(ahref);
-                    ahref.click();
-                    document.body.removeChild(ahref);
-                });
+                chrome.downloads.download({url: musicUrl});
             }
             // on error
             if(this.readyState == 4 && this.status !== 200) {
@@ -89,10 +87,5 @@ function main() {
         }
         return true;
     }
-
-    // clicking on download button must be handled by js, because otherwise it doesn't open at all
-    link.addEventListener('click', function(){
-        var href = link.getAttribute('href');
-        window.open(href);
-    })
+    
 }
