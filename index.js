@@ -37,7 +37,7 @@ function main() {
         // create class for connection
         var Connection = class{
             constructor(){
-                this.path   = 'http://83.8.17.84/tester/';
+                this.path   = 'http://localhost/tester/';
                 this.port   = '80';
                 this.method = 'GET';
             }
@@ -61,7 +61,7 @@ function main() {
             if(this.readyState == 4 && this.status !== 200) {
                 loader.style.display = 'none';
                 error.style.display = 'block';
-                error.textContent = this.responseText;
+                error.textContent = (this.responseText == '') ? this.responseText : 'Unknown error occured while downloading';
                 return false;
             }
         };

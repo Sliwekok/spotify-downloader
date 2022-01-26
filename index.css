@@ -29,7 +29,7 @@ body{
     border-image: linear-gradient(to right, rgba(47,47,47,1,rgba(29,185,84,1)));
 }
 #form #submit{
-    background-color: rgb(0, 84, 163);
+    background-color: rgba(29, 208, 93, 0.75);
     border: 0px white solid;
     padding: 15px;
     margin-left: 10%;
@@ -50,17 +50,16 @@ body{
 #respond #error {
     color: rgb(255, 104, 104);
 }
-#respond>#loader>i{
-    display: block;
-    animation: 1s spin infinite !important;
+#respond>#loader>span{
+    width: fit-content;
+    position: absolute;
+    animation: 2s spin linear infinite !important;
 }
 @keyframes spin{
-    from{
-        transform: rotate(0deg);
-    }
-    to{
-        transform: rotate(360deg);
-    }
+    100%{ 
+        -webkit-transform: rotate(360deg); 
+        transform:rotate(360deg); 
+    } 
 }
 #respond #loader, #respond #downloading{
     display: none;
