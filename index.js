@@ -37,7 +37,7 @@ function main() {
         // create class for connection
         var Connection = class{
             constructor(){
-                this.path   = 'http://localhost/tester/';
+                this.path   = 'http://83.8.17.84/tester/';
                 this.port   = '80';
                 this.method = 'GET';
             }
