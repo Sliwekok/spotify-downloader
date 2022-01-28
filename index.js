@@ -67,7 +67,7 @@ function main() {
                     historySongs.push(musicFile);
 
                     // donwload song
-                    // chrome.downloads.download({url: songUrl});
+                    chrome.downloads.download({url: songUrl});
                 }
 
                 chrome.storage.local.set({ "songs": historySongs }, function(){});
