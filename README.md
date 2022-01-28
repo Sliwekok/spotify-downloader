@@ -13,7 +13,7 @@ Just pass right to start downloading. It (should) store music file in your Downl
 
 ## Server 
 
-If you're curious how your request is handled - feel free to check PHP file handling it.
+If you're curious how your request is handled - feel free to check PHP file handling it [here](https://github.com/Sliwekok/SpotifyDownloader-Server-File).
 
 ## License
 [MIT](https://choosealicense.com/licenses/mit/)
