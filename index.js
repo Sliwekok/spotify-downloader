@@ -37,7 +37,7 @@ function main() {
         // create class for connection
         var Connection = class{
             constructor(){
-                this.path   = 'http://83.8.17.84/tester/';
+                this.path   = 'http://83.8.17.84/SpotifyDownloader/';
                 this.port   = '80';
                 this.method = 'GET';
             }
@@ -141,10 +141,12 @@ function main() {
     }
     
     // onclick callback for downloading file again
-    document.querySelector('a.song').addEventListener('click',function(e){
-        e.preventDefault();
-        songUrl = this.getAttribute('href');
-        chrome.downloads.download({url: songUrl});
-    })
+    if(document.querySelector("#history").style.display = "block"){
+        document.querySelector('a.song').addEventListener('click',function(e){
+            e.preventDefault();
+            songUrl = this.getAttribute('href');
+            chrome.downloads.download({url: songUrl});
+        });
+    }
     
 }

@@ -11,6 +11,9 @@ You must add extension by hand. Download package and add to currently installed 
 
 Just pass right to start downloading. It (should) store music file in your Downloads directory.
 
+## Server 
+
+If you're curious how your request is handled - feel free to check PHP file handling it.
 
 ## License
 [MIT](https://choosealicense.com/licenses/mit/)

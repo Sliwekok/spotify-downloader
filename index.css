@@ -6,13 +6,13 @@ body{
     color: rgb(218, 218, 218);
     background-color: rgb(66,66,66);
     border-radius: 30px;
+    max-height: 200px;
 }
 #logo{
     text-align: center
 }
 #form{
     width: 100%;
-
 }
 #form #url{
     background-color: transparent;
@@ -69,6 +69,8 @@ body{
 }
 #songsWall{
     list-style-type: "♪ ";
+    overflow: scroll;
+    /* max-height: 100%; */
 }
 #respond #loader, #respond #downloading{
     display: none;
