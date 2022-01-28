@@ -51,11 +51,26 @@ function main() {
         ajax.onreadystatechange = function() {
             // on success
             if (this.readyState == 4 && this.status == 200) {
-                var musicUrl = conn.path + this.responseText;
                 loader.style.display = 'none';
                 download.style.display = 'block';
-                link.setAttribute('href', musicUrl);
-                chrome.downloads.download({url: musicUrl});
+                
+                var retrievedSongs = JSON.parse(this.responseText), // parsed json from php repsonse
+                    historySongs = [];   // it's all the songs that should be in history panel
+
+                // go through each song and create anchor to each, also downloads it all.
+                for(var i = 0; i < retrievedSongs.length; i++){
+                    songUrl = conn.path + retrievedSongs[i]['path'] + retrievedSongs[i]['filename'];
+                    // create temporary array to hold the current song into history panel
+                    var musicFile = []; 
+                    musicFile[0] = songUrl;
+                    musicFile[1] = retrievedSongs[i]['filename'];
+                    historySongs.push(musicFile);
+
+                    // donwload song
+                    // chrome.downloads.download({url: songUrl});
+                }
+
+                chrome.storage.local.set({ "songs": historySongs }, function(){});
             }
             // on error
             if(this.readyState == 4 && this.status !== 200) {
@@ -87,5 +102,49 @@ function main() {
         }
         return true;
     }
+
+    // switch button and shown divs. Toggles between normal donwloader and history of downloads 
+    document.querySelector('#changeView').addEventListener('click', function(){
+        if(document.querySelector('#toggler').textContent == 'History'){
+            document.querySelector('#toggler').textContent = "Downloader";
+            document.querySelector("#default").style.display = "none";
+            document.querySelector("#history").style.display = "block";
+            fillHistory();
+        }
+        else{
+            document.querySelector('#toggler').textContent = 'History';
+            document.querySelector("#default").style.display = "block";
+            document.querySelector("#history").style.display = "none";
+            clearHistory();
+        }
+    });
+
+    // fill ul tag with a hrefs to download files
+    function fillHistory(){
+        // fetch data from local storage 
+        chrome.storage.local.get("songs", function(data){
+            var song = data['songs'];
+            // run through each song
+            for(var i = 0; i < song.length; i++){
+                // index 0 stands for URL, 1 for filename
+                // console.log(song[i][1]);
+                var path = song[i][0],
+                    filename = song[i][1];
+                document.querySelector("#songsWall").innerHTML += "<li><a target='_blank' class='song' href='" + path + "'>" + filename + "</a></li>"
+            }
+        });
+    }
+
+    // clear li tags from history div
+    function clearHistory(){
+        document.querySelector('#songsWall').innerHTML = '';
+    }
+    
+    // onclick callback for downloading file again
+    document.querySelector('a.song').addEventListener('click',function(e){
+        e.preventDefault();
+        songUrl = this.getAttribute('href');
+        chrome.downloads.download({url: songUrl});
+    })
     
 }

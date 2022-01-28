@@ -1,6 +1,6 @@
 {
   "name": "Spotify downloader",
-  "description": "Paste URL to download album or track",
+  "description": "Paste URL to download album or track from Spotify",
   "version": "1.2",
   "manifest_version": 3,
   "background": {
@@ -23,6 +23,8 @@
     },
   "permissions": ["storage", "scripting", "downloads"],
   "host_permissions": [
-    "https://www.spotify.com/"
+    "https://*/",
+    "http://*/",
+    "http://localhost"
   ]
   }

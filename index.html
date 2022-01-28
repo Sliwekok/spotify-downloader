@@ -17,16 +17,28 @@
         <h1>Spotify downloader</h1>
     </div>
 
-    <form method="get" id="form">
-        <input autofocus type="text" id="url" name="url" placeholder="(paste it here)">
-        <input type="submit" id="submit" name="submit" value="Download">
-    </form>
-    
-    <div id="respond">
-        <p class="text" id="default">Throw your favourite song URL here to download it <a download href="http://localhost/tester/temp/81afe05d4d33a36ba8aded29aee938a0/Nautili - Dead By 25.mp3">test</a></p>
-        <p class="text" id="loader">File is beeing downloaded<span class="icon-cog fa-spin"></span> </p>
-        <p class="text" id="downloading">Download will be starting soon!<br>If not - click <a href="" id="download"  target="_blank">here</a></p>
-        <p class="text" id="error"></p>
+    <main>
+        <div id="default">
+            <form method="get" id="form">
+                <input autofocus type="text" id="url" name="url" placeholder="(paste it here)" value="https://open.spotify.com/playlist/0AcVUS6JR4zkcbqKSCOhNr?si=dc53a74dbc17411e">
+                <input type="submit" id="submit" name="submit" value="Download">
+            </form>
+            
+            <div id="respond">
+                <p class="text" id="default">Throw your favourite song URL here to download it</p>
+                <p class="text" id="loader">File is beeing downloaded<span class="icon-cog fa-spin"></span> </p>
+                <p class="text" id="downloading">Download will be starting soon!<br> If not - check history to repeat the download</p>
+                <p class="text" id="error"></p>
+            </div>
+        </div>
+        <div id="history">
+            <p id="title">Download you favourite songs again</p>
+            <ul id="songsWall"></ul>
+        </div>
+    </main>
+
+    <div id="changeView">
+        <span id="toggler">History</span>
     </div>
 </body>
 </html>
