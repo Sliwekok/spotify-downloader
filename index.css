@@ -65,11 +65,11 @@ body{
 }
 #respond>#downloading{
     max-height: 100%;
-    overflow: auto;
 }
 #songsWall{
     list-style-type: "♪ ";
-    overflow: scroll;
+    /* must implement some way to allow scroll instead of increase height area */
+    /* overflow-y: scroll; */
     /* max-height: 100%; */
 }
 #respond #loader, #respond #downloading{
