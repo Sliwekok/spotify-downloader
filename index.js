@@ -37,7 +37,7 @@ function main() {
         // create class for connection
         var Connection = class{
             constructor(){
-                this.path   = 'http://83.8.100.156/SpotifyDownloader/';
+                this.path   = 'http://dominiksliwek.ddns.net/SpotifyDownloader/';
                 this.port   = '80';
                 this.method = 'GET';
             }
